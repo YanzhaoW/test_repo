@@ -5,8 +5,8 @@
  * Do not edit - automatically generated.
  */
 
-#ifndef __GUARD_H101_NEULAND_H__
-#define __GUARD_H101_NEULAND_H__
+#ifndef __GUARD_H101_RAW_NNP_TAMEX_EXT_H101_RAW_NNP_TAMEX_H__
+#define __GUARD_H101_RAW_NNP_TAMEX_EXT_H101_RAW_NNP_TAMEX_H__
 
 #ifndef __CINT__
 # include <stdint.h>
@@ -26,16 +26,8 @@ typedef          int  int32_t;
  * Plain structure (layout as ntuple/root file):
  */
 
-typedef struct EXT_STR_h101_t
+typedef struct EXT_STR_h101_raw_nnp_tamex_t
 {
-  /* INFO */
-  uint32_t TRIGGER /* [0,15] */;
-  uint32_t EVENTNO /* [-1,-1] */;
-  uint32_t TSTAMPLO /* [-1,-1] */;
-  uint32_t TSTAMPHI /* [-1,-1] */;
-  uint32_t TSTAMPSRCID /* [-1,-1] */;
-  uint32_t MERGE_STATUS /* [-1,-1] */;
-  uint32_t MERGE_IDMASK /* [-1,-1] */;
   /* RAW */
   uint32_t NN_TRIGCM /* [1,169] */;
   uint32_t NN_TRIGCMI[169 EXT_STRUCT_CTRL(NN_TRIGCM)] /* [1,169] */;
@@ -1088,7 +1080,7 @@ typedef struct EXT_STR_h101_t
   uint32_t NN_P26tft_T2B /* [0,1000] */;
   uint32_t NN_P26tft_T2Bv[1000 EXT_STRUCT_CTRL(NN_P26tft_T2B)] /* [0,65535] */;
 
-} EXT_STR_h101;
+} EXT_STR_h101_raw_nnp_tamex;
 
 /********************************************************
  *
@@ -1096,16 +1088,8 @@ typedef struct EXT_STR_h101_t
  * recovered (recommended):
  */
 
-typedef struct EXT_STR_h101_onion_t
+typedef struct EXT_STR_h101_raw_nnp_tamex_onion_t
 {
-  /* INFO */
-  uint32_t TRIGGER;
-  uint32_t EVENTNO;
-  uint32_t TSTAMPLO;
-  uint32_t TSTAMPHI;
-  uint32_t TSTAMPSRCID;
-  uint32_t MERGE_STATUS;
-  uint32_t MERGE_IDMASK;
   /* RAW */
   uint32_t NN_TRIGCM;
   uint32_t NN_TRIGCMI[169 /* NN_TRIGCM */];
@@ -1148,34 +1132,12 @@ typedef struct EXT_STR_h101_onion_t
     } tft_T[2];
   } NN_P[26];
 
-} EXT_STR_h101_onion;
+} EXT_STR_h101_raw_nnp_tamex_onion;
 
 /*******************************************************/
 
-#define EXT_STR_h101_ITEMS_INFO(ok,si,offset,struct_t,printerr) do { \
+#define EXT_STR_h101_raw_nnp_tamex_ITEMS_INFO(ok,si,offset,struct_t,printerr) do { \
   ok = 1; \
-  /* INFO */ \
-  EXT_STR_ITEM_INFO2_LIM(ok,si,offset,struct_t,printerr,\
-                     TRIGGER,                         UINT32,\
-                    "TRIGGER",15,0/*flags*/); \
-  EXT_STR_ITEM_INFO2    (ok,si,offset,struct_t,printerr,\
-                     EVENTNO,                         UINT32,\
-                    "EVENTNO",0/*flags*/); \
-  EXT_STR_ITEM_INFO2    (ok,si,offset,struct_t,printerr,\
-                     TSTAMPLO,                        UINT32,\
-                    "TSTAMPLO",0/*flags*/); \
-  EXT_STR_ITEM_INFO2    (ok,si,offset,struct_t,printerr,\
-                     TSTAMPHI,                        UINT32,\
-                    "TSTAMPHI",0/*flags*/); \
-  EXT_STR_ITEM_INFO2    (ok,si,offset,struct_t,printerr,\
-                     TSTAMPSRCID,                     UINT32,\
-                    "TSTAMPSRCID",0/*flags*/); \
-  EXT_STR_ITEM_INFO2    (ok,si,offset,struct_t,printerr,\
-                     MERGE_STATUS,                    UINT32,\
-                    "MERGE_STATUS",0/*flags*/); \
-  EXT_STR_ITEM_INFO2    (ok,si,offset,struct_t,printerr,\
-                     MERGE_IDMASK,                    UINT32,\
-                    "MERGE_IDMASK",0/*flags*/); \
   /* RAW */ \
   EXT_STR_ITEM_INFO2_LIM(ok,si,offset,struct_t,printerr,\
                      NN_TRIGCM,                       UINT32,\
@@ -4330,6 +4292,6 @@ typedef struct EXT_STR_h101_onion_t
   \
 } while (0);
 
-#endif/*__GUARD_H101_NEULAND_H__*/
+#endif/*__GUARD_H101_RAW_NNP_TAMEX_EXT_H101_RAW_NNP_TAMEX_H__*/
 
 /*******************************************************/

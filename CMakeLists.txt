@@ -18,5 +18,4 @@ find_package(Boost REQUIRED COMPONENTS system thread)
 add_subdirectory(utils)
 
 add_executable(test main.cpp)
-target_link_libraries(test PRIVATE Ucesb::land Ucesb::client Ucesb::launcher
-                                   Boost::thread)
+target_link_libraries(test PRIVATE Ucesb::client Ucesb::launcher Boost::thread)

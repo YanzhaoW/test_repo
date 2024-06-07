@@ -1,12 +1,16 @@
 #include "UcesbApp.hpp"
 // #include <ext_h101.h>
-#include "neuland.h"
 
-constexpr auto land_executable = std::string_view{ LAND_EXECUTABLE };
+#include "ext_h101_raw_nnp_tamex.h"
+#include "ext_h101_tpat.h"
+#include "ext_h101_unpack.h"
+
 
 struct Composite
 {
-    EXT_STR_h101_onion_t struct_1{};
+    EXT_STR_h101_unpack_t unpack;
+    EXT_STR_h101_TPAT_t tpat;
+    EXT_STR_h101_raw_nnp_tamex_onion_t raw_nnp;
 };
 
 constexpr auto executable =
@@ -29,11 +33,29 @@ auto main() -> int
         app.init(
             [](auto status, ext_data_struct_info& struct_info)
             {
-                EXT_STR_h101_ITEMS_INFO(status,
-                                        static_cast<ext_data_structure_info*>(struct_info),
-                                        offsetof(Composite, struct_1),
-                                        EXT_STR_h101_t,
-                                        0); // NOLINT
+                EXT_STR_h101_TPAT_ITEMS_INFO(status,
+                                             static_cast<ext_data_structure_info*>(struct_info),
+                                             offsetof(Composite, tpat),
+                                             EXT_STR_h101_TPAT_t,
+                                             0); // NOLINT
+            });
+        app.init(
+            [](auto status, ext_data_struct_info& struct_info)
+            {
+                EXT_STR_h101_unpack_ITEMS_INFO(status,
+                                               static_cast<ext_data_structure_info*>(struct_info),
+                                               offsetof(Composite, unpack),
+                                               EXT_STR_h101_unpack_t,
+                                               0); // NOLINT
+            });
+        app.init(
+            [](auto status, ext_data_struct_info& struct_info)
+            {
+                EXT_STR_h101_raw_nnp_tamex_ITEMS_INFO(status,
+                                                      static_cast<ext_data_structure_info*>(struct_info),
+                                                      offsetof(Composite, raw_nnp),
+                                                      EXT_STR_h101_raw_nnp_tamex_t,
+                                                      0); // NOLINT
             });
         app.launch_server(executable, std::move(args));
         app.setup();
