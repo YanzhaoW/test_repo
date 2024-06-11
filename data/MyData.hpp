@@ -7,7 +7,7 @@
 struct MyData
 {
   public:
-    MyData();
+    MyData() = default;
     bool is_valid = true;
     int value;
     std::string name = "my data";
