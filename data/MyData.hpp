@@ -7,9 +7,9 @@
 struct MyData
 {
   public:
-    MyData();
+    MyData() = default;
     bool is_valid = true;
-    int value;
+    int value = 0;
     std::string name = "my data";
     std::map<int, std::string> name_map;
 

@@ -23,3 +23,6 @@ target_link_libraries(write_data PRIVATE FairRoot::Base myData)
 
 add_executable(read_data read.cpp)
 target_link_libraries(read_data PRIVATE FairRoot::Base myData)
+
+add_executable(read_data_frame read_data_frame.cpp)
+target_link_libraries(read_data_frame PRIVATE FairRoot::Base myData ROOT::ROOTDataFrame)
