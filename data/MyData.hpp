@@ -1,17 +1,13 @@
 #pragma once
 
-#include <Rtypes.h>
-#include <map>
-#include <string>
+#include <TNamed.h>
 
-struct MyData
+struct MyData : public TNamed
 {
   public:
     MyData() = default;
-    bool is_valid = true;
-    int value = 0;
-    std::string name = "my data";
-    std::map<int, std::string> name_map;
+    int event_num = 0;
+    double value = 0.;
 
-    ClassDefNV(MyData, 1);
+    ClassDefOverride(MyData, 1);
 };
