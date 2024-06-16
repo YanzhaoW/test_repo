@@ -5,6 +5,7 @@
 #include <FairTask.h>
 #include <TFile.h>
 #include <TTree.h>
+#include <FairLogger.h>
 
 class MyReadTask : public FairTask
 {
@@ -38,6 +39,7 @@ class MyReadTask : public FairTask
 
 auto main() -> int
 {
+    FairLogger::GetLogger()->SetLogScreenLevel("error");
     auto ana_run = FairRunAna();
 
     auto root_file = std::make_unique<TFile>("data.root", "read");
@@ -47,7 +49,6 @@ auto main() -> int
     auto sink = std::make_unique<FairRootFileSink>("sink.root");
     ana_run.SetSink(sink.release());
 #endif
-
 
     ana_run.SetSource(source.release());
 
