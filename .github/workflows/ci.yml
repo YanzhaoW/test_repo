@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-test:
-    runs-on: macos-15
+    runs-on: ubuntu-22.04
     container:
       image: yanzhaowang/r3bdev:fedora-latest
 
