@@ -17,8 +17,9 @@ jobs:
       - name: testing
         run: |
           ${SIMPATH}/bin/root-config --cxxstandard
-          ${SIMPATH}/bin/root -l test.C
+          ${SIMPATH}/bin/root-config --cxx
+          ${SIMPATH}/bin/root -q test.C
 
       - name: testing failing
         run: |
-          ${SIMPATH}/bin/root -l test_fail.C
+          ${SIMPATH}/bin/root -q test_fail.C
