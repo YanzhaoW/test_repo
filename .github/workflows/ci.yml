@@ -19,6 +19,7 @@ jobs:
           ${SIMPATH}/bin/root-config --cxxstandard
           ${SIMPATH}/bin/root-config --cxx
           ${SIMPATH}/bin/root -q test.C
+          printenv
 
       - name: testing failing
         run: |
